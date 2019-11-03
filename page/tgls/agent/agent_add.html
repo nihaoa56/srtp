@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- Google Chrome Frame也可以让IE用上Chrome的引擎: -->
+    <meta name="renderer" content="webkit">
+    <!--国产浏览器高速模式-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="穷在闹市" />
+    <!-- 作者 -->
+    <meta name="revised" content="穷在闹市.v3, 2019/05/01" />
+    <!-- 定义页面的最新版本 -->
+    <meta name="description" content="网站简介" />
+    <!-- 网站简介 -->
+    <meta name="keywords" content="搜索关键字，以半角英文逗号隔开" />
+    <title>///</title>
+
+    <!-- 公共样式 开始 -->
+    <link rel="stylesheet" type="text/css" href="../../css/base.css">
+    <link rel="stylesheet" type="text/css" href="../../css/iconfont.css">
+    <script type="text/javascript" src="../../framework/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../layui/css/layui.css">
+    <script type="text/javascript" src="../../layui/layui.js"></script>
+    <!-- 滚动条插件 -->
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.mCustomScrollbar.css">
+    <script src="../../framework/jquery-ui-1.10.4.min.js"></script>
+    <script src="../../framework/jquery.mousewheel.min.js"></script>
+    <script src="../../framework/jquery.mCustomScrollbar.min.js"></script>
+    <script src="../../framework/cframe.js"></script><!-- 仅供所有子页面使用 -->
+    <!-- 公共样式 结束 -->
+
+    <style>
+        .layui-form {
+            margin-right: 30%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="cBody">
+        <form id="addForm" class="layui-form" action="">
+            <div class="layui-form-item">
+                <label class="layui-form-label">数据地址</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="identity" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">数据描述</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="data_description" placeholder="例:2019-9-13 武钢数据" autocomplete="off"
+                        class="layui-input">
+                </div>
+            </div>
+            <!-- <div class="layui-form-item">
+					<label class="layui-form-label">分管名称</label>
+					<div class="layui-input-inline shortInput">
+						<input type="text" name="title"  placeholder="例:穷在闹市银川(只允许输入中文)" autocomplete="off" class="layui-input">
+					</div>
+            		<i class="iconfont icon-huaban bt"></i>
+				</div> -->
+            <!-- <div class="layui-form-item">
+					<label class="layui-form-label">地区</label>
+	                <div class="layui-input-inline">
+	                    <select name="provid" id="provid" lay-filter="provid">
+	                    </select>
+	                </div>
+	                <div class="layui-input-inline">
+	                    <select name="cityid" id="cityid" lay-filter="cityid">
+	                        <option value="">请选择市</option>
+	                    </select>
+	                </div>
+				</div> -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">负责人</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="realName" placeholder="例:张三(只允许输入中文)" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录用户名</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="loginName" placeholder="例:nihaoa56" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">登录密码</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="password" id="password" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">确认密码</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="password" id="password2" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <!-- <div class="layui-form-item">
+					<label class="layui-form-label">电话</label>
+					<div class="layui-input-inline shortInput">
+						<input type="text" name="phone" required lay-verify="required|phone" placeholder="例：13000000000" autocomplete="off" class="layui-input">
+					</div>
+				</div> -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">传真</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="cz" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-inline shortInput">
+                    <input type="text" id="email" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-block">
+                    <textarea id="tips" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">结果保留</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="sex" value="nan" title="启用" checked>
+                    <input type="radio" name="sex" value="nv" title="禁用">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" onclick="page_action()">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- 三级省市 插件
+    		<script src="../../framework/area.js"></script>
+			<script src="../../framework/province.js"></script>
+			<script>
+				//默认城市为：宁夏 - 银川
+		        var defaults = {
+		            s1: 'provid',
+		            s2: 'cityid',
+		            s3: 'areaid',
+		            v1: 510000,
+		            v2: 510100,
+		            v3: null
+		        };
+            </script> -->
+        <script>
+            function collect_data() {
+                identity = document.getElementById("identity").value;
+                data_description = document.getElementById("data_description").value;
+                realName = document.getElementById("realName").value;
+                loginName = document.getElementById("loginName").value;
+                password = document.getElementById("password").value;
+                password2 = document.getElementById("password2").value;
+                cz = document.getElementById("cz").value;
+                email = document.getElementById("email").value;
+                tips = document.getElementById("tips").value;
+
+                data_str = {
+                    "identity": identity,
+                    "data_description": data_description,
+                    "realName": realName,
+                    "loginName": loginName,
+                    "password": password,
+                    "password2": password2,
+                    "cz": cz,
+                    "email": email,
+                    "tips": tips
+                }
+                console.log(data_str)
+                data_JSON = JSON.stringify(data_str, null, 4) //使用四个空格缩进
+                console.log(data_JSON)
+                return data_str
+            }
+            function httpPost(URL, PARAMS) {
+                var temp = document.createElement("form");
+                temp.action = URL;
+                temp.method = "post";
+                temp.style.display = "none";
+
+
+                for (var x in PARAMS) {
+                    var opt = document.createElement("textarea");
+                    opt.name = x;
+                    opt.value = PARAMS[x];
+                    temp.appendChild(opt);
+                }
+                document.body.appendChild(temp);
+                temp.submit();
+                alert('成功发送')
+                return temp;
+
+            }
+            function fn1(JJJ) {
+
+                //发送异步请求
+                //1.创建ajax引擎对象----所有操作都是由ajax引擎完成
+                var xmlHttp = new XMLHttpRequest();
+                //2.为引擎对象绑定监听事件
+                xmlHttp.onreadystatechange = function () {
+                    //当状态变化时处理的事情
+                    if (xmlHttp.status == 200) {
+                        //5.接收响应信息
+                        var data = xmlHttp.responseText;
+                        //alert(data);
+                        alert(data)
+                    }
+                }
+                //3.绑定服务器地址
+                //第一个参数：请求方式GET/POST
+                //第二个参数：后台服务器地址
+                //第三个参数：是否是异步 true--异步   false--同步
+                xmlHttp.open("POST", "http://127.0.0.1:8838/data_adder",
+                    true);
+                //4.发送请求
+                xmlHttp.send(JJJ);
+            }
+
+            function page_action() {
+                // alert("ssss")
+                data_JSON = collect_data()
+                // console.log(data_JSON)
+                // var xhr = new XMLHttpRequest();
+                // xhr.open("POST", "http://127.0.0.1:8838/data_adder", true);
+                // xhr.setRequestHeader("Content-type", "application/json");
+                // xhr.setRequestHeader("kbn-version", "5.3.0");
+                // xhr.onreadystatechange = function () {
+                //     if (xhr.readyState == 4) {
+                //         if (xhr.status == 200) {
+                //             alert('OK')
+                //         }
+                //     }
+                // };
+                // xhr.send(JSON.stringify({
+                //     "username": 'us.u',
+                //     "password": 'us.p'
+                // }));
+
+                r = httpPost("http://127.0.0.1:8838/data_adder", data_JSON)
+                // fn1(data_JSON)
+                // alert("" + r)
+                // console.log(r)
+            }
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>
