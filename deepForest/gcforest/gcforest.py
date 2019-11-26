@@ -1,6 +1,6 @@
 import numpy as np
 
-from .cascade.cascade_classifier import CascadeClassifier
+# from .cascade.cascade_classifier import CascadeClassifier
 from .config import GCTrainConfig
 from .fgnet import FGNet
 from .utils.log_utils import get_logger
@@ -17,7 +17,8 @@ class GCForest(object):
         else:
             self.fg = None
         if "cascade" in self.config:
-            self.ca = CascadeClassifier(self.config["cascade"])
+            self.ca = None
+            # CascadeClassifier(self.config["cascade"])
         else:
             self.ca = None
 
@@ -32,8 +33,9 @@ class GCForest(object):
             X_train = self.fg.get_outputs("train")
             if "test" in train_config.phases:
                 X_test = self.fg.get_outputs("test")
-        if self.ca is not None:
-            _, X_train, _, X_test, _, = self.ca.fit_transform(X_train, y_train, X_test, y_test, train_config=train_config)
+        # if self.ca is not None:s
+            # _, X_train, _, X_test, _, = self.ca.fit_transform(X_train, y_train, X_test, y_test, train_config=train_config)
+            # pass
 
         if X_test is None:
             return X_train

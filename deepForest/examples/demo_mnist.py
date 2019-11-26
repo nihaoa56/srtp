@@ -7,10 +7,13 @@ Usage:
         python examples/demo_mnist.py --model examples/demo_mnist-gc.json
         python examples/demo_mnist.py --model examples/demo_mnist-ca.json
 """
+import os
 import argparse
 import numpy as np
 import sys
 from keras.datasets import mnist
+from keras.datasets import cifar
+import keras.backend as K
 import pickle
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
@@ -18,6 +21,40 @@ sys.path.insert(0, "lib")
 
 from gcforest.gcforest import GCForest
 from gcforest.utils.config_utils import load_json
+# from ..gcforest.utils.config_utils import load_json
+
+def load_data():
+    """Loads CIFAR10 dataset.
+
+    # Returns
+        Tuple of Numpy arrays: `(x_train, y_train), (x_test, y_test)`.
+    """
+    # dirname = 'cifar-10-batches-py'
+    # origin = 'https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz'
+    # path = get_file(dirname, origin=origin, untar=True)
+    path = "/home/sun/work/python/NAS/BNAS/BNAS/data/cifar10/"
+
+    num_train_samples = 50000
+
+    x_train = np.empty((num_train_samples, 3, 32, 32), dtype='uint8')
+    y_train = np.empty((num_train_samples,), dtype='uint8')
+
+    for i in range(1, 6):
+        fpath = os.path.join(path, 'data_batch_' + str(i))
+        (x_train[(i - 1) * 10000: i * 10000, :, :, :],
+         y_train[(i - 1) * 10000: i * 10000]) = cifar.load_batch(fpath)
+
+    fpath = os.path.join(path, 'test_batch')
+    x_test, y_test = cifar.load_batch(fpath)
+
+    y_train = np.reshape(y_train, (len(y_train), 1))
+    y_test = np.reshape(y_test, (len(y_test), 1))
+    
+    if K.image_data_format() == 'channels_last':
+        x_train = x_train.transpose(0, 2, 3, 1)
+        x_test = x_test.transpose(0, 2, 3, 1)
+
+    return (x_train, y_train), (x_test, y_test)
 
 
 def parse_args():
@@ -56,6 +93,7 @@ if __name__ == "__main__":
     # If the model you use cost too much memory for you.
     # You can use these methods to force gcforest not keeping model in memory
     # gc.set_keep_model_in_mem(False), default is TRUE.
+    gc.set_keep_model_in_mem(True)
 
     (X_train, y_train), (X_test, y_test) = mnist.load_data()
     # X_train, y_train = X_train[:2000], y_train[:2000]

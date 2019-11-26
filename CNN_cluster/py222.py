@@ -441,7 +441,7 @@ def main():
     train_load = t.utils.data.DataLoader(train_data, batch_size=args.batch_size, shuffle=True, num_workers=WORKERS)
     test_load = t.utils.data.DataLoader(test_data, batch_size=args.test_batch_size, shuffle=False, num_workers=WORKERS)
 
-    net = AlexNet().cuda()
+    net = ResNet34(3).cuda()
     print(net)
 
     # 如果不训练，直接加载保存的网络参数进行测试集验证
