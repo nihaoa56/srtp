@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/home/sun/anaconda3/envs/py27/bin/python",
+    "python.linting.banditEnabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}

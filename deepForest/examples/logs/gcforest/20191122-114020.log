@@ -1,0 +1,8 @@
+[ 2019-11-22 11:40:20,854][cascade_classifier.fit_transform] X_groups_train.shape=[(60000, 1, 28, 28)],y_train.shape=(60000,),X_groups_test.shape=no_test,y_test.shape=no_test
+[ 2019-11-22 11:40:20,883][cascade_classifier.fit_transform] group_dims=[784]
+[ 2019-11-22 11:40:20,883][cascade_classifier.fit_transform] group_starts=[0]
+[ 2019-11-22 11:40:20,883][cascade_classifier.fit_transform] group_ends=[784]
+[ 2019-11-22 11:40:20,884][cascade_classifier.fit_transform] X_train.shape=(60000, 784),X_test.shape=(0, 784)
+[ 2019-11-22 11:40:20,910][cascade_classifier.fit_transform] [layer=0] look_indexs=[0], X_cur_train.shape=(60000, 784), X_cur_test.shape=(0, 784)
+[ 2019-11-22 11:40:47,286][kfold_wrapper.log_eval_metrics] Accuracy(layer_0 - estimator_0 - 5_folds.train_0.predict)=90.02%
+[ 2019-11-22 11:41:13,162][kfold_wrapper.log_eval_metrics] Accuracy(layer_0 - estimator_0 - 5_folds.train_1.predict)=90.07%

@@ -1,0 +1,6 @@
+[ 2019-11-22 13:38:44,823][cascade_classifier.fit_transform] X_groups_train.shape=[(50000, 1, 32, 32, 3)],y_train.shape=(50000, 1),X_groups_test.shape=no_test,y_test.shape=no_test
+[ 2019-11-22 13:38:45,167][cascade_classifier.fit_transform] group_dims=[3072]
+[ 2019-11-22 13:38:45,167][cascade_classifier.fit_transform] group_starts=[0]
+[ 2019-11-22 13:38:45,167][cascade_classifier.fit_transform] group_ends=[3072]
+[ 2019-11-22 13:38:45,168][cascade_classifier.fit_transform] X_train.shape=(50000, 3072),X_test.shape=(0, 3072)
+[ 2019-11-22 13:38:45,245][cascade_classifier.fit_transform] [layer=0] look_indexs=[0], X_cur_train.shape=(50000, 3072), X_cur_test.shape=(0, 3072)
