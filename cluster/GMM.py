@@ -50,9 +50,9 @@ pca_machine.fit(data)
 pca_result = pca_machine.fit_transform(data)
 # print(pca_result)
 # print(pca_result[:,0])
-# pca_X = pca_result[:, 0]
-# pca_Y = pca_result[:, 1]
-# pca_Z = pca_result[:,2]
+pca_X = pca_result[:, 0]
+pca_Y = pca_result[:, 1]
+pca_Z = pca_result[:,2]
 
 class_one = np.arange(3) #矩阵无效初始化
 class_two = np.arange(3)
@@ -60,12 +60,12 @@ class_three = np.arange(3)
 
 
 
-for i in range(len(pred_gmm)):
-    if pred_gmm[i] == 0:
+for i in range(len(pred_kmeans)):
+    if pred_kmeans[i] == 0:
         class_one = np.vstack((class_one,pca_result[i]))
-    elif pred_gmm[i] == 1:
+    elif pred_kmeans[i] == 1:
         class_two = np.vstack((class_two,pca_result[i]))
-    elif pred_gmm[i] == 2:
+    elif pred_kmeans[i] == 2:
         class_three = np.vstack((class_three, pca_result[i]))
         
 # 矩阵处理
@@ -89,9 +89,15 @@ class_three_Z = class_three[:, 2]
 
 ax = plt.subplot(111, projection='3d') # 创建一个三维的绘图工程
 # 将数据点分成三部分画，在颜色上有区分度
-ax.scatter(class_one_X, class_one_Y, class_one_Z, c='y') # 绘制数据点
-ax.scatter(class_two_X, class_two_Y, class_two_Z, c='r')
-ax.scatter(class_three_X, class_three_Y, class_three_Z, c='g')
+ax.scatter(pca_X[:15], pca_Y[:15], pca_Z[:15], c='y') # 绘制数据点
+ax.scatter(pca_X[15:30], pca_Y[15:30], pca_Z[15:30], c='r')
+ax.scatter(pca_X[30:50], pca_Y[30:50], pca_Z[30:50], c='g')
+
+
+
+# ax.scatter(class_one_X, class_one_Y, class_one_Z, c='y') # 绘制数据点
+# ax.scatter(class_two_X, class_two_Y,class_two_Z , c='r')
+# ax.scatter(class_three_X, class_three_Y, class_three_Z, c='g')
 
 ax.set_zlabel('Z') # 坐标轴
 ax.set_ylabel('Y')
