@@ -37,7 +37,7 @@ scipy==1.2.1
 singledispatch==3.4.0.3
 six==1.12.0
 tensorboard==1.8.0
-tensorflow==1.8.0
+tensorflow==2.3.1
 termcolor==1.1.0
 traceback2==1.4.0
 unittest2==1.1.0
